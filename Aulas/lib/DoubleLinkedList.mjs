@@ -177,19 +177,19 @@ export default class DoublyLinkedList {
   //método que retorna a posição do nodo cujo conteúdo foi especificado
   indexOf(val){
     const middle = Math.ceil(this.#count / 2)
-    let node1 = this.#head //começa na cabeça da lista
-    let node2 = this.#tail //começa na cauda da lista
+    let node1 = this.#head
+    let node2 = this.#tail
 
     for(let pos = 0; pos < middle; pos++){
-      //verifica se o valor está no node1
+      //verifica se o valor esta no node1
       if(val === node1.data) return pos
-      //verifica se o valor está no node2
+      //verificar se o valor esta no node2
       if(val === node2.data) return this.#count - 1 - pos
 
       //node1 avança via next
       node1 = node1.next
 
-      //node2 retocede via prev
+      //node2 retrocede via prev
       node2 = node2.prev
     }
 
@@ -197,13 +197,13 @@ export default class DoublyLinkedList {
   }
 
 
-  print(){
+  print() {
     let output = '( '
-    let node = this.#head
+    let node = this.#head;
 
     for(let i = 0; i < this.#count; i++){
       if(output !== '( ') output += ', '
-      output += `[${i}]: ${node.data}`
+      output += `[${i}] : ${node.data}`
       node = node.next
     }
     output += ` ), count: ${this.#count}`

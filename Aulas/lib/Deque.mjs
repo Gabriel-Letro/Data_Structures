@@ -1,54 +1,49 @@
 export default class Deque {
 
-    #data       // Vetor privado
+    #data
 
     constructor() {
-        this.#data = []     // Vetor vazio
+        this.#data = []
     }
 
-    // Método para inserção no início da estrutura
+    //metodo para inserção no inicio da estrutura
     insertFront(val) {
         this.#data.unshift(val)
     }
-
-    // Método para inserção no final da estrutura
+    //metodo para inserção no final da estrutura
     insertBack(val) {
         this.#data.push(val)
     }
 
-    // Método para remoção do início da estrutura
+    //metodo para remoção do inicio da estrutura
     removeFront() {
         return this.#data.shift()
     }
-
-    // Método para remoção do final da estrutura
+    //metodo para remoção no final da estrutura
     removeBack() {
-        return this.#data.pop()
+        return this.#data.pop
     }
-
-    // Método para consultar o início da estrutura
+    //metodo para consultar o inicio da estrutura
     peekFront() {
         return this.#data[0]
     }
-
-    // Método para consultar o final da estrutura
+    //metodo para consultar o final da estrutura
     peekBack() {
         return this.#data[this.#data.length - 1]
     }
-
-    // Getter para informar se o deque está ou não vazio
-    // (propriedade somente leitura)
+    //metodo para verificar se esta vazio
     get isEmpty() {
-        return this.#data.length === 0
+        return this.#data.length === 0 ? "Sim, está vazia!" : "Não"
     }
-
-    // Método que imprime o deque (para efeitos de depuração)
+    //método de impressão (para efeitos de depuração)
     print() {
-        let output = '[ '
-        for(let i = 0; i < this.#data.length; i++) {
-          if(output !== '[ ') output += ', '
-          output += `(${i}): ${this.#data[i]}`
+        let output = "[ "
+        for (let i = 0; i < this.#data.length; i++) {
+            if (output !== "[ ") {
+                output += ", "
+            }
+            output += `(${i + 1}): ${this.#data[i]}`
         }
-        return output + ' ]'
+        return output + " ]"
     }
 }
