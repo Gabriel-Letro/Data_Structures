@@ -1,33 +1,35 @@
 export default class Stack {
-    #data //vetor privado
+
+    #data       // Vetor privado
 
     constructor() {
-        this.#data = []
-}
+        this.#data = []     // Vetor vazio
+    }
 
-    //método para inserção no vetor
-    push(val){
+    // Método para inserção no vetor
+    push(val) {
         this.#data.push(val)
     }
 
-    //método de remoção do vetor
-    pop(){
-       return this.#data.pop()
+    // Método para remoção do vetor
+    pop() {
+        return this.#data.pop()
     }
 
-    //verificar o topo da pilha 
-    peek(){
+    // Método para consultar o topo (última posição) da pilha
+    // sem remover o elemento
+    peek() {
         return this.#data[this.#data.length - 1]
     }
 
-    //verificar se a pilha está vazia
-    get isEmpty(){
+    // Getter para informar se a pilha está ou não vazia
+    // (propriedade somente leitura)
+    get isEmpty() {
         return this.#data.length === 0
     }
 
-    //mostrar a pilha 
-    print(){
-        return JSON.stringify(this.#data)
+    // Método que imprime a pilha (para efeitos de depuração)
+    print() {
+        return JSON.stringify(this.#data) //O método JSON.stringify() converte valores em javascript para uma String JSON.
     }
-
 }
