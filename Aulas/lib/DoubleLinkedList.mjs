@@ -173,4 +173,40 @@ export default class DoublyLinkedList {
   peekTail(){
     return this.peek(this.#count - 1)
   }
+
+  //método que retorna a posição do nodo cujo conteúdo foi especificado
+  indexOf(val){
+    const middle = Math.ceil(this.#count / 2)
+    let node1 = this.#head
+    let node2 = this.#tail
+
+    for(let pos = 0; pos < middle; pos++){
+      //verifica se o valor esta no node1
+      if(val === node1.data) return pos
+      //verificar se o valor esta no node2
+      if(val === node2.data) return this.#count - 1 - pos
+
+      //node1 avança via next
+      node1 = node1.next
+
+      //node2 retrocede via prev
+      node2 = node2.prev
+    }
+
+    return -1
+  }
+
+
+  print() {
+    let output = '( '
+    let node = this.#head;
+
+    for(let i = 0; i < this.#count; i++){
+      if(output !== '( ') output += ', '
+      output += `[${i}] : ${node.data}`
+      node = node.next
+    }
+    output += ` ), count: ${this.#count}`
+    return output
+  }
 }
