@@ -1,9 +1,9 @@
 function mergeSort(vetor){
-    if(vetor.legth < 2) {
+    if(vetor.length < 2) {
         return vetor
     }
 
-    let meio = Math.floor(vetor.legth / 2)
+    let meio = Math.floor(vetor.length / 2)
 
     let vetEsq = vetor.slice(0,meio)
     let vetDir = vetor.slice(meio)
@@ -16,7 +16,7 @@ function mergeSort(vetor){
     //mesclagem ordenada de vetEsq com vetDir
     let posEsq = 0, posDir = 0, vetRes = []
 
-    while(posEsq < vetEsq.legth && posDir < vetDir.legth){
+    while(posEsq < vetEsq.length && posDir < vetDir.length){
         if(vetEsq[posEsq] < vetDir[posDir]){
             vetRes.push(vetEsq[posEsq])
             posEsq++
@@ -26,6 +26,19 @@ function mergeSort(vetor){
         }
     }
 
+    let sobra 
+
+    if(posEsq < vetEsq.length){
+        sobra = vetEsq.slice(posEsq)
+    }else{
+        sobra = vetDir.slice(posDir)
+    }
+
+    return vetRes.concat(sobra)
 }
 
 let nums = [77,44,22,33,99,55,88,0,66,11]
+
+let numsOrd = mergeSort(nums)
+
+console.log({numsOrd})
